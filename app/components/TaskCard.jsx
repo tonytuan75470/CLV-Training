@@ -4,6 +4,7 @@ import DeleteBlock from "./DeleteBlock";
 import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import StatusDisplay from "./StatusDisplay";
+import Link from "next/link";
 
 const TaskCard = ({ task }) => {
   const formatTimestamp = (timestamp) => {
@@ -30,6 +31,7 @@ const TaskCard = ({ task }) => {
           <DeleteBlock id={task._id}/>
         </div>
       </div>
+      <Link href={`/TaskPage/${task._id}`} style={{ display: "contents" }}>
       <h4>{task.title}</h4>
       <hr className="h-px border-0 bg-slate-700 mb-2" />
       <p className="whitespace-pre-wrap">{task.description}</p>
@@ -43,6 +45,7 @@ const TaskCard = ({ task }) => {
           <StatusDisplay status={task.status} />
         </div>
       </div>
+      </Link>
     </div>
   );
 };
